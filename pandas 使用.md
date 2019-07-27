@@ -35,7 +35,7 @@ import warnings
 warnings.filterwarnings('ignore')
  动手练习｜如果你对课程所使用的实验楼 Notebook 在线环境并不熟悉，可以先学习  使用指南课程。
 
-# 在此空白单元格中对照教学代码练习即可
+在此空白单元格中对照教学代码练习即可
 通过 read_csv() 方法读取数据，然后使用 head() 方法查看前 5 行数据。
 
 df = pd.read_csv(
@@ -203,8 +203,8 @@ pd.crosstab(df['Churn'], df['Voice mail plan'], normalize=True)
 
 total_calls = df['Total day calls'] + df['Total eve calls'] + \
     df['Total night calls'] + df['Total intl calls']
-# loc 参数是插入 Series 对象后选择的列数
-# 设置为 len(df.columns)以便将计算后的 Total calls 粘贴到最后一列
+loc 参数是插入 Series 对象后选择的列数
+设置为 len(df.columns)以便将计算后的 Total calls 粘贴到最后一列
 df.insert(loc=len(df.columns), column='Total calls', value=total_calls)
 
 df.head()
@@ -217,9 +217,9 @@ df.head()
 
 使用 drop() 方法删除列和行。
 
-# 移除先前创捷的列
+移除先前创捷的列
 df.drop(['Total charge', 'Total calls'], axis=1, inplace=True)
-# 删除行
+删除行
 df.drop([1, 2]).head()
 
 对上述代码的部分解释：
@@ -229,7 +229,7 @@ inplace 参数表示是否修改原始 DataFrame （False 表示不修改现有 
 预测离网率
 首先，通过上面介绍的 crosstab() 方法构建一个交叉表来查看 International plan 国际套餐 变量和 Churn 离网率 的相关性，同时使用 countplot() 方法构建计数直方图来可视化结果。
 
-# 加载模块，配置绘图
+加载模块，配置绘图
 import matplotlib.pyplot as plt
 import seaborn as sns
 

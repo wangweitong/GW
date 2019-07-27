@@ -360,12 +360,12 @@ plt.legend()
 示例
 下面用一棵决策树拟合一些合成数据。这些合成数据属于两个不同的类别，这两个类别的均值不同，但都呈现正态分布。
 
-# 第一类
+第一类
 np.random.seed(17)
 train_data = np.random.normal(size=(100, 2))
 train_labels = np.zeros(100)
 
-# 第二类
+第二类
 train_data = np.r_[train_data, np.random.normal(size=(100, 2), loc=2)]
 train_labels = np.r_[train_labels, np.ones(100)]
 
@@ -379,7 +379,7 @@ plt.plot(range(-2, 5), range(4, -3, -1))
 下面训练一棵 sklearn 决策树，区分这两类数据点。最后可视化所得的边界。
 
 from sklearn.tree import DecisionTreeClassifier
-# 编写一个辅助函数，返回之后的可视化网格
+编写一个辅助函数，返回之后的可视化网格
 
 
 def get_grid(data):
@@ -388,12 +388,12 @@ def get_grid(data):
     return np.meshgrid(np.arange(x_min, x_max, 0.01), np.arange(y_min, y_max, 0.01))
 
 
-#  max_depth参数限制决策树的深度
+ max_depth参数限制决策树的深度
 clf_tree = DecisionTreeClassifier(criterion='entropy', max_depth=3,
                                   random_state=17)
-# 训练决策树
+训练决策树
 clf_tree.fit(train_data, train_labels)
-# 可视化
+可视化
 xx, yy = get_grid(train_data)
 predicted = clf_tree.predict(np.c_[xx.ravel(),
                                    yy.ravel()]).reshape(xx.shape)
@@ -920,9 +920,9 @@ k-NN	0.976	0.987
 def form_noisy_data(n_obj=1000, n_feat=100, random_seed=17):
     np.seed = random_seed
     y = np.random.choice([-1, 1], size=n_obj)
-    # 第一个特征与目标成比例
+    第一个特征与目标成比例
     x1 = 0.3 * y
-    # 其他特征为噪声
+    其他特征为噪声
     x_other = np.random.random(size=[n_obj, n_feat - 1])
     return np.hstack([x1.reshape([n_obj, 1]), x_other]), y
 

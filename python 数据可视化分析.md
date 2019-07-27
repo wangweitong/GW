@@ -122,11 +122,11 @@ sns.countplot(x='Customer service calls', data=df, ax=axes[1])
 
 首先，我们使用 DataFrame 的  corr() 方法计算出每对特征间的相关性。接着，我们将所得的相关矩阵（correlation matrix）传给 seaborn 的  heatmap()方法，该方法根据提供的数值，渲染出一个基于色彩编码的矩阵。
 
-# 丢弃非数值变量
+丢弃非数值变量
 numerical = list(set(df.columns) -
                  set(['State', 'International plan', 'Voice mail plan',
                       'Area code', 'Churn', 'Customer service calls']))
-# 计算和绘图
+计算和绘图
 corr_matrix = df[numerical].corr()
 sns.heatmap(corr_matrix)
 
@@ -170,7 +170,7 @@ sns.lmplot('Total day minutes', 'Total night minutes',
 
 现在，创建箱形图，以可视化忠实客户（Churn=0）和离网客户（Churn=1）这两个互斥分组中数值变量分布的统计数据。
 
-# 有时我们可以将有序变量作为数值变量分析
+有时我们可以将有序变量作为数值变量分析
 numerical.append('Customer service calls')
 
 fig, axes = plt.subplots(nrows=3, ncols=4, figsize=(10, 7))
